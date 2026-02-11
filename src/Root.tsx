@@ -6,6 +6,7 @@ import { ThreeTierStack } from "./components/ThreeTierStack";
 import { ModuleAssembly } from "./components/ModuleAssembly";
 import { LogoResolve } from "./components/LogoResolve";
 import { ColorSpectrumShift } from "./components/ColorSpectrumShift";
+import { PillarReveal } from "./components/PillarReveal";
 
 const FPS = 30;
 
@@ -51,6 +52,19 @@ export const RemotionRoot: React.FC = () => {
         fps={FPS}
         width={1920}
         height={1080}
+      />
+
+      {/* Shots 10-12: three pillars reveal */}
+      <Composition
+        id="PillarReveal"
+        component={PillarReveal}
+        durationInFrames={5 * FPS}
+        fps={FPS}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          staggerFrames: 35,
+        }}
       />
 
       {/* Shot 11: decentralized node network */}
