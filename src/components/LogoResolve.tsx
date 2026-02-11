@@ -1,10 +1,12 @@
 import React, { useMemo } from "react";
 import {
   AbsoluteFill,
+  Img,
   useCurrentFrame,
   useVideoConfig,
   interpolate,
   spring,
+  staticFile,
 } from "remotion";
 
 // Particles that converge to center then reveal the logo
@@ -26,6 +28,8 @@ export const LogoResolve: React.FC = () => {
   // Particles that converge
   const particles = useMemo(() => {
     const rand = seededRandom(99);
+    // Brand palette hues: blues (210-230) and purples (250-270)
+    const brandHues = [210, 215, 220, 225, 230, 240, 250, 255, 260, 270];
     return Array.from({ length: 60 }, (_, i) => {
       const angle = rand() * Math.PI * 2;
       const dist = 400 + rand() * 600;
@@ -34,7 +38,7 @@ export const LogoResolve: React.FC = () => {
         startY: cy + Math.sin(angle) * dist,
         speed: 0.8 + rand() * 0.4,
         size: 2 + rand() * 3,
-        hue: rand() * 360,
+        hue: brandHues[Math.floor(rand() * brandHues.length)],
       };
     });
   }, [cx, cy]);
@@ -156,20 +160,15 @@ export const LogoResolve: React.FC = () => {
           transform: `scale(${0.8 + logoScale * 0.2})`,
         }}
       >
-        {/* Powerhouse text logo */}
-        <div
+        {/* Powerhouse full logo (icon + wordmark) */}
+        <Img
+          src={staticFile("brand/PH-Logo-Light-L.png")}
           style={{
-            fontFamily: "system-ui, -apple-system, sans-serif",
-            fontSize: 72,
-            fontWeight: 700,
-            color: "#ffffff",
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
-            textShadow: "0 0 30px rgba(255,255,255,0.15)",
+            height: 100,
+            objectFit: "contain",
+            filter: `drop-shadow(0 0 ${20 + Math.sin(frame * 0.05) * 5}px rgba(140, 180, 255, 0.25))`,
           }}
-        >
-          POWERHOUSE
-        </div>
+        />
 
         {/* Subtle tagline */}
         <div
@@ -178,7 +177,7 @@ export const LogoResolve: React.FC = () => {
             fontSize: 18,
             color: "rgba(255,255,255,0.4)",
             letterSpacing: "0.3em",
-            marginTop: 16,
+            marginTop: 24,
             opacity: interpolate(frame, [80, 100], [0, 1], {
               extrapolateLeft: "clamp",
               extrapolateRight: "clamp",
@@ -199,8 +198,8 @@ export const LogoResolve: React.FC = () => {
             right: 0,
             bottom: 0,
             opacity: 0.03 + Math.sin(frame * 0.03) * 0.01,
-            background: `radial-gradient(circle at 30% 40%, rgba(100,200,255,0.3) 0%, transparent 30%),
-                         radial-gradient(circle at 70% 60%, rgba(100,200,255,0.2) 0%, transparent 25%)`,
+            background: `radial-gradient(circle at 30% 40%, rgba(92,139,255,0.3) 0%, transparent 30%),
+                         radial-gradient(circle at 70% 60%, rgba(139,125,255,0.2) 0%, transparent 25%)`,
           }}
         />
       )}
