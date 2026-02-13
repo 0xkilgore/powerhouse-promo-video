@@ -5,6 +5,8 @@ import {
   useVideoConfig,
   interpolate,
   spring,
+  Img,
+  staticFile,
 } from "remotion";
 
 const COMMAND = "$ vetra spec --validate";
@@ -102,12 +104,30 @@ export const SpecTerminalValidation: React.FC = () => {
             style={{
               marginLeft: "auto",
               marginRight: "auto",
-              fontFamily: "'Courier New', monospace",
-              fontSize: 13,
-              color: "#666",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
             }}
           >
-            vetra-cli
+            <Img
+              src={staticFile("brand/Vetra-logo.png")}
+              style={{
+                height: 18,
+                objectFit: "contain",
+                objectPosition: "left",
+                width: 18,
+                overflow: "hidden",
+              }}
+            />
+            <span
+              style={{
+                fontFamily: "'Courier New', monospace",
+                fontSize: 13,
+                color: "#666",
+              }}
+            >
+              vetra-cli
+            </span>
           </span>
         </div>
 

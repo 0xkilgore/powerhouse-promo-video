@@ -5,6 +5,8 @@ import {
   useVideoConfig,
   interpolate,
   spring,
+  Img,
+  staticFile,
 } from "remotion";
 
 type Props = {
@@ -42,6 +44,13 @@ export const SceneTitle: React.FC<Props> = ({
       })
     : 0;
 
+  // Icon fade in (slightly before text)
+  const iconSpring = spring({
+    frame: frame - 1,
+    fps,
+    config: { damping: 20, stiffness: 100, mass: 0.5 },
+  });
+
   // Accent line sweeps in
   const lineStart = isFeature ? 10 : 12;
   const lineWidth = interpolate(frame - lineStart, [0, 18], [0, 100], {
@@ -58,9 +67,25 @@ export const SceneTitle: React.FC<Props> = ({
       : 0;
 
   if (isFeature) {
-    // Feature variant: left-aligned, lower on screen
+    // Feature variant: left-aligned, lower on screen, small white icon watermark
     return (
       <AbsoluteFill style={{ backgroundColor: "#0a0a0f", overflow: "hidden" }}>
+        {/* PH icon watermark — upper left */}
+        <div
+          style={{
+            position: "absolute",
+            left: 140,
+            top: 60,
+            opacity: iconSpring * 0.12,
+            transform: `translateY(${interpolate(iconSpring, [0, 1], [8, 0])}px)`,
+          }}
+        >
+          <Img
+            src={staticFile("brand/PH-Icon-Light-L.png")}
+            style={{ width: 36, height: 36 }}
+          />
+        </div>
+
         <div
           style={{
             position: "absolute",
@@ -129,7 +154,7 @@ export const SceneTitle: React.FC<Props> = ({
     );
   }
 
-  // Part variant: centered, larger
+  // Part variant: centered, larger, colour icon above subtitle
   return (
     <AbsoluteFill style={{ backgroundColor: "#0a0a0f", overflow: "hidden" }}>
       <div
@@ -145,6 +170,20 @@ export const SceneTitle: React.FC<Props> = ({
           justifyContent: "center",
         }}
       >
+        {/* PH colour icon */}
+        <div
+          style={{
+            marginBottom: "24px",
+            opacity: iconSpring,
+            transform: `translateY(${interpolate(iconSpring, [0, 1], [16, 0])}px) scale(${interpolate(iconSpring, [0, 1], [0.8, 1])})`,
+          }}
+        >
+          <Img
+            src={staticFile("brand/Powerhouse-Icon-colour.svg")}
+            style={{ width: 52, height: 52 }}
+          />
+        </div>
+
         {/* Subtitle (Part number) */}
         {subtitle && (
           <div

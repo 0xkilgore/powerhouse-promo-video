@@ -5,6 +5,8 @@ import {
   useVideoConfig,
   interpolate,
   spring,
+  Img,
+  staticFile,
 } from "remotion";
 
 const TEXT = "specification-driven AI";
@@ -204,28 +206,48 @@ export const SpecHolographic: React.FC = () => {
         />
       )}
 
-      {/* Subtitle after fill */}
-      {frame > scanEnd + 10 && (
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: centerY + fontSize + 30,
-            transform: "translateX(-50%)",
-            fontFamily: "'Courier New', monospace",
-            fontSize: 18,
-            color: "#06b6d4",
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
-            opacity: interpolate(frame - scanEnd - 10, [0, 20], [0, 0.6], {
-              extrapolateRight: "clamp",
-            }),
-            textShadow: "0 0 10px rgba(6, 182, 212, 0.3)",
-          }}
-        >
-          beyond vibe-coding
-        </div>
-      )}
+      {/* Subtitle + Vetra icon after fill */}
+      {frame > scanEnd + 10 && (() => {
+        const subOpacity = interpolate(frame - scanEnd - 10, [0, 20], [0, 0.7], {
+          extrapolateRight: "clamp",
+        });
+        return (
+          <div
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: centerY + fontSize + 30,
+              transform: "translateX(-50%)",
+              display: "flex",
+              alignItems: "center",
+              gap: "14px",
+              opacity: subOpacity,
+            }}
+          >
+            <Img
+              src={staticFile("brand/Vetra-logo.png")}
+              style={{
+                height: 22,
+                width: 22,
+                objectFit: "contain",
+                objectPosition: "left",
+              }}
+            />
+            <span
+              style={{
+                fontFamily: "'Courier New', monospace",
+                fontSize: 18,
+                color: "#06b6d4",
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                textShadow: "0 0 10px rgba(6, 182, 212, 0.3)",
+              }}
+            >
+              beyond vibe-coding
+            </span>
+          </div>
+        );
+      })()}
 
       {/* Vignette */}
       <div

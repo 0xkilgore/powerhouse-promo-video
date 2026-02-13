@@ -5,6 +5,8 @@ import {
   useVideoConfig,
   interpolate,
   spring,
+  Img,
+  staticFile,
 } from "remotion";
 
 const TEXT = "specification-driven AI";
@@ -230,6 +232,15 @@ export const SpecChaosToOrder: React.FC = () => {
             gap: "12px",
           }}
         >
+          <Img
+            src={staticFile("brand/Vetra-logo.png")}
+            style={{
+              height: 28,
+              width: 28,
+              objectFit: "contain",
+              objectPosition: "left",
+            }}
+          />
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
             <circle cx="18" cy="18" r="17" stroke="#33FF33" strokeWidth="2" fill="rgba(51, 255, 51, 0.1)" />
             <path d="M10 18 L16 24 L26 12" stroke="#33FF33" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
