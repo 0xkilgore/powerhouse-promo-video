@@ -8,6 +8,9 @@ import { LogoResolve } from "./components/LogoResolve";
 import { ColorSpectrumShift } from "./components/ColorSpectrumShift";
 import { PillarReveal } from "./components/PillarReveal";
 import { RefactorReveal } from "./components/RefactorReveal";
+import { SpecChaosToOrder } from "./components/SpecChaosToOrder";
+import { SpecTerminalValidation } from "./components/SpecTerminalValidation";
+import { SpecHolographic } from "./components/SpecHolographic";
 
 const FPS = 30;
 
@@ -172,6 +175,36 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={{
           title: "refactor the entire stack",
         }}
+      />
+
+      {/* "specification-driven AI" — chaos to order */}
+      <Composition
+        id="SpecChaosToOrder"
+        component={SpecChaosToOrder}
+        durationInFrames={7 * FPS}
+        fps={FPS}
+        width={1920}
+        height={1080}
+      />
+
+      {/* "specification-driven AI" — terminal validation */}
+      <Composition
+        id="SpecTerminalValidation"
+        component={SpecTerminalValidation}
+        durationInFrames={7 * FPS}
+        fps={FPS}
+        width={1920}
+        height={1080}
+      />
+
+      {/* "specification-driven AI" — holographic wireframe */}
+      <Composition
+        id="SpecHolographic"
+        component={SpecHolographic}
+        durationInFrames={7 * FPS}
+        fps={FPS}
+        width={1920}
+        height={1080}
       />
 
       {/* Shot 19: logo resolve */}
