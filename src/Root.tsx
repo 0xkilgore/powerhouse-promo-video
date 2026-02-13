@@ -45,6 +45,21 @@ export const RemotionRoot: React.FC = () => {
         }}
       />
 
+      {/* Shot 3a overlay: black text, transparent bg for compositing */}
+      <Composition
+        id="KineticTextStack-Overlay"
+        component={KineticTextStack}
+        durationInFrames={5 * FPS}
+        fps={FPS}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          lines: ["our apps.", "our platforms.", "our data."],
+          color: "#000000",
+          intervalFrames: 30,
+        }}
+      />
+
       {/* Shot 9: green monochrome → full color spectrum shift */}
       <Composition
         id="ColorSpectrumShift"
