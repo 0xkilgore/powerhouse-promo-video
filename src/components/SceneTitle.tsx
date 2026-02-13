@@ -10,11 +10,18 @@ import {
 type Props = {
   title: string;
   subtitle?: string;
+  variant?: "part" | "feature";
 };
 
-export const SceneTitle: React.FC<Props> = ({ title, subtitle }) => {
+export const SceneTitle: React.FC<Props> = ({
+  title,
+  subtitle,
+  variant = "part",
+}) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
+
+  const isFeature = variant === "feature";
 
   // Text slide-up + fade
   const textSpring = spring({
@@ -23,7 +30,7 @@ export const SceneTitle: React.FC<Props> = ({ title, subtitle }) => {
     config: { damping: 18, stiffness: 80, mass: 0.6 },
   });
 
-  const textY = interpolate(textSpring, [0, 1], [24, 0]);
+  const textY = interpolate(textSpring, [0, 1], [isFeature ? 16 : 24, 0]);
   const textOpacity = interpolate(textSpring, [0, 1], [0, 1]);
 
   // Subtitle (e.g. "Part 1") appears slightly before main title
@@ -36,7 +43,7 @@ export const SceneTitle: React.FC<Props> = ({ title, subtitle }) => {
     : 0;
 
   // Accent line sweeps in
-  const lineStart = 12;
+  const lineStart = isFeature ? 10 : 12;
   const lineWidth = interpolate(frame - lineStart, [0, 18], [0, 100], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
@@ -50,9 +57,81 @@ export const SceneTitle: React.FC<Props> = ({ title, subtitle }) => {
         })
       : 0;
 
+  if (isFeature) {
+    // Feature variant: left-aligned, lower on screen
+    return (
+      <AbsoluteFill style={{ backgroundColor: "#0a0a0f", overflow: "hidden" }}>
+        <div
+          style={{
+            position: "absolute",
+            left: 140,
+            bottom: 220,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+          }}
+        >
+          {/* Main title */}
+          <div
+            style={{
+              fontFamily: "'Courier New', monospace",
+              fontSize: 42,
+              fontWeight: "bold",
+              color: "#ffffff",
+              opacity: textOpacity,
+              transform: `translateY(${textY}px)`,
+              textAlign: "left",
+              maxWidth: 1200,
+              lineHeight: 1.2,
+              textShadow: "0 0 16px rgba(255, 255, 255, 0.05)",
+            }}
+          >
+            {title}
+          </div>
+
+          {/* Accent line — left-aligned, shorter */}
+          <div
+            style={{
+              marginTop: "14px",
+              width: 320,
+              height: "2px",
+            }}
+          >
+            <div
+              style={{
+                width: `${lineWidth}%`,
+                height: "100%",
+                background:
+                  "linear-gradient(90deg, #06b6d4, rgba(6, 182, 212, 0.2))",
+                boxShadow:
+                  lineGlow > 0
+                    ? `0 0 ${lineGlow * 12}px rgba(6, 182, 212, ${lineGlow})`
+                    : "none",
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Vignette */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background:
+              "radial-gradient(ellipse at 30% 70%, transparent 40%, #0a0a0f 100%)",
+            pointerEvents: "none",
+          }}
+        />
+      </AbsoluteFill>
+    );
+  }
+
+  // Part variant: centered, larger
   return (
     <AbsoluteFill style={{ backgroundColor: "#0a0a0f", overflow: "hidden" }}>
-      {/* Centered content */}
       <div
         style={{
           position: "absolute",
@@ -88,7 +167,7 @@ export const SceneTitle: React.FC<Props> = ({ title, subtitle }) => {
         <div
           style={{
             fontFamily: "'Courier New', monospace",
-            fontSize: subtitle ? 56 : 48,
+            fontSize: 56,
             fontWeight: "bold",
             color: "#ffffff",
             opacity: textOpacity,
@@ -116,10 +195,12 @@ export const SceneTitle: React.FC<Props> = ({ title, subtitle }) => {
             style={{
               width: `${lineWidth}%`,
               height: "100%",
-              background: "linear-gradient(90deg, #06b6d4, #ffffff 60%, rgba(255, 255, 255, 0.3))",
-              boxShadow: lineGlow > 0
-                ? `0 0 ${lineGlow * 16}px rgba(6, 182, 212, ${lineGlow})`
-                : "none",
+              background:
+                "linear-gradient(90deg, #06b6d4, #ffffff 60%, rgba(255, 255, 255, 0.3))",
+              boxShadow:
+                lineGlow > 0
+                  ? `0 0 ${lineGlow * 16}px rgba(6, 182, 212, ${lineGlow})`
+                  : "none",
             }}
           />
         </div>
@@ -133,7 +214,8 @@ export const SceneTitle: React.FC<Props> = ({ title, subtitle }) => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: "radial-gradient(ellipse at center, transparent 50%, #0a0a0f 100%)",
+          background:
+            "radial-gradient(ellipse at center, transparent 50%, #0a0a0f 100%)",
           pointerEvents: "none",
         }}
       />
