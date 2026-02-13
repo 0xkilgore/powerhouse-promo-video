@@ -11,6 +11,26 @@ import { RefactorReveal } from "./components/RefactorReveal";
 import { SpecChaosToOrder } from "./components/SpecChaosToOrder";
 import { SpecTerminalValidation } from "./components/SpecTerminalValidation";
 import { SpecHolographic } from "./components/SpecHolographic";
+import { SceneTitle } from "./components/SceneTitle";
+
+const SCENE_TITLES = [
+  // Part titles
+  { id: "Title-Part1", title: "Reclaiming our Personal Space", subtitle: "Part 1" },
+  { id: "Title-Part2", title: "Better Peer Collaboration", subtitle: "Part 2" },
+  // Part 1 features
+  { id: "Title-P1-LocalFirst", title: "Local-first documents" },
+  { id: "Title-P1-Consistency", title: "Consistency guarantees" },
+  { id: "Title-P1-History", title: "Verifiable document history" },
+  { id: "Title-P1-Branching", title: "Undo, branching and merging" },
+  { id: "Title-P1-Storage", title: "Storage agnostic" },
+  { id: "Title-P1-Filesystem", title: "Beyond the filesystem paradigm" },
+  // Part 2 features
+  { id: "Title-P2-CommChannels", title: "Documents as communication channels" },
+  { id: "Title-P2-Permissions", title: "Operations as permission hooks" },
+  { id: "Title-P2-APIs", title: "Documents as APIs" },
+  { id: "Title-P2-ReadModels", title: "Scalable read models and analytics" },
+  { id: "Title-P2-Infrastructure", title: "Independent infrastructure" },
+];
 
 const FPS = 30;
 
@@ -206,6 +226,23 @@ export const RemotionRoot: React.FC = () => {
         width={1920}
         height={1080}
       />
+
+      {/* Scene title cards */}
+      {SCENE_TITLES.map((scene) => (
+        <Composition
+          key={scene.id}
+          id={scene.id}
+          component={SceneTitle}
+          durationInFrames={2 * FPS}
+          fps={FPS}
+          width={1920}
+          height={1080}
+          defaultProps={{
+            title: scene.title,
+            subtitle: scene.subtitle,
+          }}
+        />
+      ))}
 
       {/* Shot 19: logo resolve */}
       <Composition
