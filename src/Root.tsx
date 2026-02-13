@@ -7,6 +7,7 @@ import { ModuleAssembly } from "./components/ModuleAssembly";
 import { LogoResolve } from "./components/LogoResolve";
 import { ColorSpectrumShift } from "./components/ColorSpectrumShift";
 import { PillarReveal } from "./components/PillarReveal";
+import { RefactorReveal } from "./components/RefactorReveal";
 
 const FPS = 30;
 
@@ -143,6 +144,19 @@ export const RemotionRoot: React.FC = () => {
         fps={FPS}
         width={1920}
         height={1080}
+      />
+
+      {/* "Refactor the entire stack" — code refactor visual */}
+      <Composition
+        id="RefactorReveal"
+        component={RefactorReveal}
+        durationInFrames={8 * FPS}
+        fps={FPS}
+        width={1920}
+        height={1080}
+        defaultProps={{
+          title: "refactor the entire stack",
+        }}
       />
 
       {/* Shot 19: logo resolve */}
