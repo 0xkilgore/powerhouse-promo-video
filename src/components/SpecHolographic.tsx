@@ -225,12 +225,11 @@ export const SpecHolographic: React.FC = () => {
             }}
           >
             <Img
-              src={staticFile("brand/Vetra-logo.png")}
+              src={staticFile("brand/Vetra-white.svg")}
               style={{
-                height: 22,
-                width: 22,
+                height: 20,
                 objectFit: "contain",
-                objectPosition: "left",
+                opacity: 0.8,
               }}
             />
             <span

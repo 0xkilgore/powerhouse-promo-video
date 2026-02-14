@@ -110,13 +110,11 @@ export const SpecTerminalValidation: React.FC = () => {
             }}
           >
             <Img
-              src={staticFile("brand/Vetra-logo.png")}
+              src={staticFile("brand/Vetra-white.svg")}
               style={{
-                height: 18,
+                height: 14,
                 objectFit: "contain",
-                objectPosition: "left",
-                width: 18,
-                overflow: "hidden",
+                opacity: 0.7,
               }}
             />
             <span

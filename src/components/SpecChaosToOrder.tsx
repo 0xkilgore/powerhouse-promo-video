@@ -233,12 +233,10 @@ export const SpecChaosToOrder: React.FC = () => {
           }}
         >
           <Img
-            src={staticFile("brand/Vetra-logo.png")}
+            src={staticFile("brand/Vetra-white.svg")}
             style={{
-              height: 28,
-              width: 28,
+              height: 24,
               objectFit: "contain",
-              objectPosition: "left",
             }}
           />
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
