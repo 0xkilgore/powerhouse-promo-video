@@ -3,41 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Powerhouse Promo Video — Remotion Components</title>
+  <title>Powerhouse Promo Video — All Animations</title>
   <link rel="icon" type="image/png" href="brand/PH-Icon-circle.png">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background: #0a0a0f;
       color: #e0e0e0;
-      font-family: -apple-system, system-ui, sans-serif;
+      font-family: 'Courier New', monospace;
       padding: 40px 20px;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
     h1 {
       font-size: 28px;
       font-weight: 600;
-      margin-bottom: 8px;
       color: #fff;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 8px;
     }
     .subtitle {
       color: #888;
-      font-size: 14px;
+      font-size: 13px;
       margin-bottom: 40px;
-      font-family: 'Courier New', monospace;
     }
     .subtitle a { color: #06b6d4; text-decoration: none; }
     .subtitle a:hover { text-decoration: underline; }
+    h2 {
+      color: #06b6d4;
+      font-size: 15px;
+      margin: 48px 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1a1a2a;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    h2:first-of-type { margin-top: 0; }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 20px;
     }
     .card {
       background: #111118;
-      border: 1px solid #222;
-      border-radius: 12px;
+      border: 1px solid #1a1a2a;
+      border-radius: 10px;
       overflow: hidden;
     }
     .card video {
@@ -46,53 +60,47 @@
       background: #000;
     }
     .card-info {
-      padding: 16px 20px;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
     }
-    .shot-label {
-      font-family: 'Courier New', monospace;
-      font-size: 12px;
-      color: #06b6d4;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .shot-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .shot-vo {
-      font-size: 13px;
-      color: #888;
-      font-style: italic;
-      line-height: 1.5;
-    }
-    .section-header {
-      grid-column: 1 / -1;
+    .card-label {
       font-size: 14px;
-      font-family: 'Courier New', monospace;
-      color: #22c55e;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 20px 0 0 0;
-      border-top: 1px solid #222;
+      color: #ccc;
     }
-    .section-header:first-of-type {
-      border-top: none;
-      padding-top: 0;
+    .card-id {
+      font-size: 11px;
+      color: #444;
+      margin-top: 3px;
+    }
+    a.dl {
+      color: #06b6d4;
+      text-decoration: none;
+      font-size: 11px;
+      padding: 5px 12px;
+      border: 1px solid #06b6d4;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    a.dl:hover {
+      background: #06b6d4;
+      color: #0a0a0f;
     }
     .instructions {
       margin-top: 48px;
       padding: 24px;
       background: #111118;
-      border: 1px solid #222;
-      border-radius: 12px;
-      font-size: 14px;
-      line-height: 1.8;
+      border: 1px solid #1a1a2a;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.9;
+      margin-bottom: 40px;
     }
-    .instructions h2 {
-      font-size: 16px;
+    .instructions h3 {
+      font-size: 15px;
       color: #fff;
       margin-bottom: 12px;
     }
@@ -100,142 +108,254 @@
       background: #1a1a24;
       padding: 2px 8px;
       border-radius: 4px;
-      font-family: 'Courier New', monospace;
-      font-size: 13px;
+      font-size: 12px;
       color: #06b6d4;
     }
+    .instructions p { margin-bottom: 4px; }
   </style>
 </head>
 <body>
-  <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+
+  <div class="header">
     <img src="brand/Powerhouse-Icon-colour.svg" alt="Powerhouse" style="height: 36px; width: 36px;">
     <h1>Powerhouse Promo Video</h1>
   </div>
-  <p class="subtitle">Remotion-generated components for the intro sequence (1:34) &mdash; <a href="https://github.com/0xkilgore/powerhouse-promo-video">GitHub Repo</a></p>
+  <p class="subtitle">
+    All Remotion animations &mdash;
+    <a href="https://github.com/0xkilgore/powerhouse-promo-video">GitHub Repo</a>
+  </p>
 
+  <h2>Part Title Cards</h2>
   <div class="grid">
-
-    <div class="section-header">Act 1: The Doom</div>
-
     <div class="card">
-      <video src="videos/shot-3a-kinetic-text.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-Part1.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shot 3a &mdash; 0:12</div>
-        <div class="shot-title">Kinetic Text Stack</div>
-        <div class="shot-vo">"...our apps, our platforms, our data &mdash;"</div>
+        <div><div class="card-label">Reclaiming our Personal Space</div><div class="card-id">Title-Part1</div></div>
+        <a class="dl" href="videos/titles/Title-Part1.mp4" download>Download</a>
       </div>
     </div>
-
     <div class="card">
-      <video src="videos/shot-3b-terminal-typing.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-Part2.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shot 3b &mdash; 0:17</div>
-        <div class="shot-title">Terminal Typing: "our lives."</div>
-        <div class="shot-vo">"&mdash; our lives."</div>
+        <div><div class="card-label">Better Peer Collaboration</div><div class="card-id">Title-Part2</div></div>
+        <a class="dl" href="videos/titles/Title-Part2.mp4" download>Download</a>
       </div>
     </div>
+  </div>
 
-    <div class="section-header">Act 2: The Turn</div>
-
+  <h2>Part 1 &mdash; Feature Title Cards</h2>
+  <div class="grid">
     <div class="card">
-      <video src="videos/shot-9-color-shift.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-P1-LocalFirst.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shot 9 &mdash; 0:38</div>
-        <div class="shot-title">Color Spectrum Shift</div>
-        <div class="shot-vo">"New paradigms are forming that can steer our dystopian journey into a different direction."</div>
+        <div><div class="card-label">Local-first documents</div><div class="card-id">Title-P1-LocalFirst</div></div>
+        <a class="dl" href="videos/titles/Title-P1-LocalFirst.mp4" download>Download</a>
       </div>
     </div>
-
-    <div class="section-header">Act 3: The Hope</div>
-
     <div class="card">
-      <video src="videos/shot-10-12-pillar-reveal.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-P1-Consistency.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shots 10-12 &mdash; 0:43</div>
-        <div class="shot-title">Three Pillars Reveal</div>
-        <div class="shot-vo">"With advances in local-first software, decentralized technologies and open-source AI..."</div>
+        <div><div class="card-label">Consistency guarantees</div><div class="card-id">Title-P1-Consistency</div></div>
+        <a class="dl" href="videos/titles/Title-P1-Consistency.mp4" download>Download</a>
       </div>
     </div>
-
     <div class="card">
-      <video src="videos/shot-11-nodes-decentralized.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-P1-History.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shot 11 &mdash; 0:46</div>
-        <div class="shot-title">Decentralized Node Network</div>
-        <div class="shot-vo">"...decentralized technologies..."</div>
+        <div><div class="card-label">Verifiable document history</div><div class="card-id">Title-P1-History</div></div>
+        <a class="dl" href="videos/titles/Title-P1-History.mp4" download>Download</a>
       </div>
     </div>
-
-    <div class="section-header">Act 4: The Structure</div>
-
     <div class="card">
-      <video src="videos/shot-14-module-assembly.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-P1-Branching.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shot 14 &mdash; 1:00</div>
-        <div class="shot-title">Module Assembly</div>
-        <div class="shot-vo">"The building blocks are already available..."</div>
+        <div><div class="card-label">Undo, branching and merging</div><div class="card-id">Title-P1-Branching</div></div>
+        <a class="dl" href="videos/titles/Title-P1-Branching.mp4" download>Download</a>
       </div>
     </div>
-
     <div class="card">
-      <video src="videos/shot-15-three-tier.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-P1-Storage.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shot 15 &mdash; 1:07</div>
-        <div class="shot-title">Three-Tier Stack</div>
-        <div class="shot-vo">"From the ground up, we can now build a better internet..."</div>
+        <div><div class="card-label">Storage agnostic</div><div class="card-id">Title-P1-Storage</div></div>
+        <a class="dl" href="videos/titles/Title-P1-Storage.mp4" download>Download</a>
       </div>
     </div>
-
     <div class="card">
-      <video src="videos/shot-16-node-individual.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-P1-Filesystem.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shot 16 &mdash; 1:14</div>
-        <div class="shot-title">Individual Node</div>
-        <div class="shot-vo">"On the level of the individual, we need to reclaim our personal data..."</div>
+        <div><div class="card-label">Beyond the filesystem paradigm</div><div class="card-id">Title-P1-Filesystem</div></div>
+        <a class="dl" href="videos/titles/Title-P1-Filesystem.mp4" download>Download</a>
       </div>
     </div>
+  </div>
 
+  <h2>Part 2 &mdash; Feature Title Cards</h2>
+  <div class="grid">
     <div class="card">
-      <video src="videos/shot-17-node-collaboration.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-P2-CommChannels.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shot 17 &mdash; 1:19</div>
-        <div class="shot-title">Collaboration Cluster</div>
-        <div class="shot-vo">"Then, we need better ways to collaborate peer-to-peer..."</div>
+        <div><div class="card-label">Documents as communication channels</div><div class="card-id">Title-P2-CommChannels</div></div>
+        <a class="dl" href="videos/titles/Title-P2-CommChannels.mp4" download>Download</a>
       </div>
     </div>
-
     <div class="card">
-      <video src="videos/shot-18-node-global.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-P2-Permissions.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shot 18 &mdash; 1:24</div>
-        <div class="shot-title">Global Network</div>
-        <div class="shot-vo">"And finally, those groups can come together and coordinate on a global scale."</div>
+        <div><div class="card-label">Operations as permission hooks</div><div class="card-id">Title-P2-Permissions</div></div>
+        <a class="dl" href="videos/titles/Title-P2-Permissions.mp4" download>Download</a>
       </div>
     </div>
-
-    <div class="section-header">Act 5: Powerhouse</div>
-
     <div class="card">
-      <video src="videos/shot-19-logo-resolve.mp4" controls loop muted></video>
+      <video src="videos/titles/Title-P2-APIs.mp4" controls preload="metadata"></video>
       <div class="card-info">
-        <div class="shot-label">Shot 19 &mdash; 1:29</div>
-        <div class="shot-title">Logo Resolve</div>
-        <div class="shot-vo">"At Powerhouse, we are building the open framework and tools to make this real."</div>
+        <div><div class="card-label">Documents as APIs</div><div class="card-id">Title-P2-APIs</div></div>
+        <a class="dl" href="videos/titles/Title-P2-APIs.mp4" download>Download</a>
       </div>
     </div>
+    <div class="card">
+      <video src="videos/titles/Title-P2-ReadModels.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Scalable read models and analytics</div><div class="card-id">Title-P2-ReadModels</div></div>
+        <a class="dl" href="videos/titles/Title-P2-ReadModels.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/titles/Title-P2-Infrastructure.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Independent infrastructure</div><div class="card-id">Title-P2-Infrastructure</div></div>
+        <a class="dl" href="videos/titles/Title-P2-Infrastructure.mp4" download>Download</a>
+      </div>
+    </div>
+  </div>
 
+  <h2>Hero Animations</h2>
+  <div class="grid">
+    <div class="card">
+      <video src="videos/refactor-reveal.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Refactor the entire stack</div><div class="card-id">RefactorReveal</div></div>
+        <a class="dl" href="videos/refactor-reveal.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/SpecChaosToOrder.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Spec-driven AI &mdash; Chaos to Order</div><div class="card-id">SpecChaosToOrder</div></div>
+        <a class="dl" href="videos/SpecChaosToOrder.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/SpecTerminalValidation.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Spec-driven AI &mdash; Terminal</div><div class="card-id">SpecTerminalValidation</div></div>
+        <a class="dl" href="videos/SpecTerminalValidation.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/SpecHolographic.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Spec-driven AI &mdash; Holographic</div><div class="card-id">SpecHolographic</div></div>
+        <a class="dl" href="videos/SpecHolographic.mp4" download>Download</a>
+      </div>
+    </div>
+  </div>
+
+  <h2>Intro Animations</h2>
+  <div class="grid">
+    <div class="card">
+      <video src="videos/shot-3a-kinetic-text.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">our apps. our platforms. our data.</div><div class="card-id">KineticTextStack</div></div>
+        <a class="dl" href="videos/shot-3a-kinetic-text.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/shot-3b-terminal-typing.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">our lives.</div><div class="card-id">TerminalTyping</div></div>
+        <a class="dl" href="videos/shot-3b-terminal-typing.mp4" download>Download</a>
+      </div>
+    </div>
+  </div>
+
+  <h2>Visual Animations</h2>
+  <div class="grid">
+    <div class="card">
+      <video src="videos/shot-9-color-shift.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Color Spectrum Shift</div><div class="card-id">ColorSpectrumShift</div></div>
+        <a class="dl" href="videos/shot-9-color-shift.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/shot-10-12-pillar-reveal.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Three Pillars Reveal</div><div class="card-id">PillarReveal</div></div>
+        <a class="dl" href="videos/shot-10-12-pillar-reveal.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/shot-11-nodes-decentralized.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Node Network &mdash; Decentralized</div><div class="card-id">NodeNetwork-Small</div></div>
+        <a class="dl" href="videos/shot-11-nodes-decentralized.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/shot-16-node-individual.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Node Network &mdash; Individual</div><div class="card-id">NodeNetwork-Individual</div></div>
+        <a class="dl" href="videos/shot-16-node-individual.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/shot-17-node-collaboration.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Node Network &mdash; Collaboration</div><div class="card-id">NodeNetwork-Collaboration</div></div>
+        <a class="dl" href="videos/shot-17-node-collaboration.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/shot-18-node-global.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Node Network &mdash; Global</div><div class="card-id">NodeNetwork-Global</div></div>
+        <a class="dl" href="videos/shot-18-node-global.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/shot-14-module-assembly.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Module Assembly</div><div class="card-id">ModuleAssembly</div></div>
+        <a class="dl" href="videos/shot-14-module-assembly.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/shot-15-three-tier.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Three-Tier Stack</div><div class="card-id">ThreeTierStack</div></div>
+        <a class="dl" href="videos/shot-15-three-tier.mp4" download>Download</a>
+      </div>
+    </div>
+    <div class="card">
+      <video src="videos/shot-19-logo-resolve.mp4" controls preload="metadata"></video>
+      <div class="card-info">
+        <div><div class="card-label">Logo Resolve</div><div class="card-id">LogoResolve</div></div>
+        <a class="dl" href="videos/shot-19-logo-resolve.mp4" download>Download</a>
+      </div>
+    </div>
   </div>
 
   <div class="instructions">
-    <h2>Interactive Studio</h2>
-    <p>To tweak animations, colors, timing, and props interactively:</p>
-    <br>
+    <h3>How to Edit & Re-render</h3>
     <p>1. Clone: <code>git clone https://github.com/0xkilgore/powerhouse-promo-video.git</code></p>
     <p>2. Install: <code>cd powerhouse-promo-video && npm install</code></p>
-    <p>3. Run: <code>npm run dev</code></p>
-    <p>4. Open <code>http://localhost:3000</code> in your browser</p>
-    <br>
-    <p>Each composition can be previewed, scrubbed, and re-rendered with different props.</p>
+    <p>3. Preview: <code>npx remotion studio</code> (opens browser at localhost:3000)</p>
+    <p>4. Edit text in <code>src/Root.tsx</code> (title cards) or individual component files in <code>src/components/</code></p>
+    <p>5. Render: <code>npx remotion render src/index.ts CompositionId out/filename.mp4</code></p>
+    <p>6. Deploy: <code>cp out/*.mp4 public/videos/ && git add . && git commit -m "msg" && git push && vercel --yes --prod</code></p>
+    <p style="margin-top: 12px; color: #555;">
+      Full guide: <code>resources/remotion-text-guide.md</code> in the main powerhouse repo
+    </p>
   </div>
 
 </body>
